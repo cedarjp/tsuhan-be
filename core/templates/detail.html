@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}{{ item.Name }} | {{ item.ParentCategoryName }}{% endblock title %}
+{% block content %}
+        <section>
+            <h1 class="title">{{ item.Name }}</h1>
+            <div class="row">
+                <div class="span4">
+                    <a href="{{ 'http://www.moshimo.com/article/17491/' ~ item.ArticleId }}">
+                        <img src="{{ 'http://image.moshimo.com/item_image/' ~ item.ImageCode  ~ '/1/l.jpg'}}" width="300" height="300" alt="{{ item.Name }}" />
+                    </a>
+                </div>
+                <div class="span8">
+                    <table class="table table-bordered">
+                        <tbody>
+                        {%- if item.FixedPrice %}
+                        <tr>
+                            <th class="w150">希望小売価格</th>
+                            <td>{{ item.FixedPrice | int_add_comma }}円</td>
+                        </tr>
+                        {% endif -%}
+                        <tr>
+                            <th class="w150">販売価格</th>
+                            <td>{{ item.ShopPrice | int_add_comma }}円</td>
+                        </tr>
+                        <tr>
+                            <th class="w150">在庫状況</th>
+                            <td>{{ item.StockStatusWord }}</td>
+                        </tr>
+                        <tr>
+                            <th class="w150">関連ワード</th>
+                            <td>
+                                <ul class="side">
+                                    {% for tag in item.Tags %}
+                                        <li><a href="{{ url_for('core/tags',tags=tag,list_per_page=24,page_index=0) }}">{{ tag }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="fl-c"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ 'http://www.moshimo.com/article/17491/' ~ item.ArticleId }}" class="btn">詳しくはココをクリック</a>
+                    <a href="{{ 'http://mp.moshimo.com/cart/add?shop_id=17491&article_id=' ~ item.ArticleId }}" class="btn btn-primary">
+                        カートに入れる
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                <h2 class="title">商品情報</h2>
+                {{ item.Description|safe }}
+                </div>
+                <div class="span6">
+                    <h2 class="title">スペック</h2>
+                    {{ item.Spec|safe }}
+                </div>
+            </div>
+            {% if product_content %}
+            <div class="row">
+                <div class="span12">
+                    {{ product_content.description |safe}}
+                </div>
+            </div>
+            {% endif %}
+        </section>
+{% endblock content %}

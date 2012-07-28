@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}送料無料商品も多数。商品数10万点の通販サイト{% endblock title %}
+{% block content %}
+        {% for i in salesitem %}
+            {% if loop.first %}
+        <!--salestopitem-->
+        <section>
+            <h1 class="title">おすすめ商品</h1>
+            <div class="contents">
+                <ul class="side itemlist">
+            {% endif %}
+                {% include 'core/product_list_item.html' %}
+            {% if loop.last %}
+                </ul>
+                <div class="fl-c"></div>
+            </div>
+        </section>
+        <!--/salestopitem-->
+            {% endif %}
+        {% endfor %}
+        {% for i in newitem %}
+            {% if loop.first %}
+        <!--salestopitem-->
+        <section>
+            <h1 class="title">新入荷商品</h1>
+            <div class="contents">
+                <ul class="side itemlist">
+            {% endif %}
+                {% include 'core/product_list_item.html' %}
+        {% if loop.last %}
+                </ul>
+                <div class="fl-c"></div>
+            </div>
+        </section>
+        {% endif %}
+        {% endfor %}
+{% endblock content %}

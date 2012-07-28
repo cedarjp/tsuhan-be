@@ -1,0 +1,36 @@
+@import "bootstrap/bootstrap.less";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@import "bootstrap/responsive.less";
+
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+
+
+
+// Navbar
+// -------------------------
+@navbarHeight:                    40px;
+@navbarBackground:                spin(@navbarBackgroundHighlight, 15%);
+@navbarBackgroundHighlight:       @linkColor;
+
+@navbarText:                      @white;
+@navbarLinkColor:                 @white;
+@navbarLinkColorHover:            @white;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarSearchBackground:          lighten(@navbarBackground, 25%);
+@navbarSearchBackgroundFocus:     @white;
+@navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
+@navbarSearchPlaceholderColor:    #ccc;
+@navbarBrandColor:                @navbarLinkColor;
+
+@import "tsuhan.less";

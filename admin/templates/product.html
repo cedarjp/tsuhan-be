@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}追加説明文登録{% endblock title %}
+{% block content %}
+<section>
+    <h1 class="title">追加説明文登録</h1>
+    <div class="contents">
+        {{ product_form()|safe }}
+    </div>
+</section>
+{% endblock content %}

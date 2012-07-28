@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ categories | join(' | ') }}{% endblock title %}
+{% block content %}
+        <section>
+            <h1 class="title">{{ categories | join(' > ') }}</h1>
+            {% for i in itemlist %}
+                {% if loop.first %}
+            <div class="contents">
+                <ul class="side itemlist">
+                {% endif %}
+                    {% include 'core/product_list_item.html' %}
+                {% if loop.last %}
+                </ul>
+                <div class="fl-c"></div>
+            </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+        {% for item in navi %}
+            {% if loop.first %}
+        <div class="ta-c">
+        <section>
+            <div class="pagination">
+                <ul>
+            {% endif %}
+            {% if item == page %}
+            <li class="active">
+                <a href="{{ navi[item] }}">{{ item }}</a>
+            </li>
+            {% else %}
+                <li><a href="{{ navi[item] }}">{{ item }}</a></li>
+            {% endif %}
+            {% if loop.last %}
+                </ul>
+            </div>
+        </section>
+        </div>
+            {% endif %}
+        {% endfor %}
+{% endblock content %}

@@ -1,0 +1,49 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="{{ url_for('core/index') }}">通販.be</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li{% if request.path=='/' %} class="active"{% endif %}><a href="{{ url_for('core/index') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">カテゴリ <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('core/products',category_code='01',list_per_page=24,page_index=0) }}">フード・ドリンク</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='02',list_per_page=24,page_index=0) }}">ブランド</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='03',list_per_page=24,page_index=0) }}">ファッション</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='04',list_per_page=24,page_index=0) }}">AV・デジモノ</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='05',list_per_page=24,page_index=0) }}">家電</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='06',list_per_page=24,page_index=0) }}">美容・コスメ</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='07',list_per_page=24,page_index=0) }}">ダイエット・健康</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='08',list_per_page=24,page_index=0) }}">生活雑貨</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='09',list_per_page=24,page_index=0) }}">ホビー・エトセトラ</a></li>
+                            <li><a href="{{ url_for('core/products',category_code='10',list_per_page=24,page_index=0) }}">スポーツ・レジャー</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://www.moshimo.com/bargain/futon/17491">羽根布団８点セット</a></li>
+                            <li><a href="http://www.moshimo.com/bargain/germanium/17491">ゲルマニウムグッズ</a></li>
+                            <li><a href="http://www.moshimo.com/bargain/597/17491">フェイスラボ</a></li>
+                            <li><a href="http://www.moshimo.com/bargain/diet-goods/17491">ダイエットグッズ</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">お買い物ガイド <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.mp.moshimo.com/mp/www/flow?shop_id=17491">お買い物の流れ</a></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/payment?shop_id=17491">決済・配送・納期について</a></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/mailmagazine?shop_id=17491">メールマガジンについて</a></li>
+                            <li><a href="http://cart.mp.moshimo.com/mp/cart/?shop_id=17491">カートを見る</a></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/faq?shop_id=17491">FAQ</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/return?shop_id=17491">返品について</a></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/correspond?shop_id=17491">お問合せ対応時間</a></li>
+                            <li><a href="http://www.mp.moshimo.com/mp/www/inquiry/shopping?shop_id=17491">お買い物についてのお問い合わせ</a></li>
+                        </ul>
+                    </li>
+                    {% call form(class_="navbar-search pull-left") %}
+                        {{ form['words'](class_="search-query span2",placeholder='Search') | safe }}
+                    {% endcall %}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>

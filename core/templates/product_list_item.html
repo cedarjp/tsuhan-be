@@ -1,0 +1,12 @@
+<li>
+    <div class="image">
+        <a href="{{ url_for('core/detail',article_id=i.ArticleId) }}">
+            <img src="{{ 'http://image.moshimo.com/item_image/'~i.ImageCode~'/1/r.jpg' }}" alt="{{ i.Name }}">
+        </a>
+    </div>
+    <div class="product_name">
+        <a href="{{ url_for('core/detail',article_id=i.ArticleId) }}">
+            {{ i.Name }}
+        </a>
+    </div>
+</li>

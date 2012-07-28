@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}サイトマップ登録{% endblock title %}
+{% block content %}
+<section>
+    <h1 class="title">サイトマップ登録</h1>
+    <div class="contents">
+        {{ sitemap_form()|safe }}
+    </div>
+</section>
+{% endblock content %}
